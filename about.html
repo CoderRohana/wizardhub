@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', serif;
+        }
+
+        body {
+            background: #000000;
+            color: #c0c0c0;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: linear-gradient(to bottom, #0a1a0a, #000000);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 15px rgba(0, 255, 0, 0.1);
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #1a472a;
+        }
+
+        .logo {
+            margin-right: 3rem;
+        }
+
+        .logo h1 {
+            color: #1a472a;
+            font-size: 2rem;
+            text-shadow: 0 0 10px rgba(26, 71, 42, 0.5);
+            font-family: 'Times New Roman', serif;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #c0c0c0;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover {
+            color: #2e7d32;
+            text-shadow: 0 0 5px rgba(46, 125, 50, 0.5);
+        }
+
+        /* Dropdown */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: rgba(0, 0, 0, 0.95);
+            min-width: 300px;
+            box-shadow: 0 8px 16px rgba(26, 71, 42, 0.3);
+            border: 1px solid #1a472a;
+        }
+
+        .dropdown-content a {
+            padding: 12px 16px;
+            display: block;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Container */
+        .container {
+            padding: 120px 5% 50px;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .header h1 {
+            color: #2e7d32;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 15px rgba(46, 125, 50, 0.5);
+        }
+
+        .divider {
+            height: 2px;
+            width: 150px;
+            background: linear-gradient(to right, transparent, #1a472a, transparent);
+            margin: 0 auto;
+        }
+
+        /* Creator Card */
+        .creator-card {
+            background: linear-gradient(to bottom, #0a1a0a, #000000);
+            border: 1px solid #1a472a;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 4rem;
+            transform: translateY(50px);
+            opacity: 0;
+            transition: all 0.8s ease-out;
+        }
+
+        .creator-card.animate {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .creator-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .creator-title i {
+            color: #2e7d32;
+            font-size: 2rem;
+            text-shadow: 0 0 10px rgba(46, 125, 50, 0.5);
+        }
+
+        .creator-title h2 {
+            color: #2e7d32;
+            font-size: 1.8rem;
+            text-shadow: 0 0 10px rgba(46, 125, 50, 0.3);
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: linear-gradient(to bottom, #0a1a0a, #000000);
+            border: 1px solid #1a472a;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            transform: translateY(50px);
+            opacity: 0;
+            transition: all 0.8s ease-out;
+        }
+
+        .feature-card.animate {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .feature-icon {
+            color: #2e7d32;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px rgba(46, 125, 50, 0.5);
+        }
+
+        .feature-title {
+            color: #2e7d32;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 5px rgba(46, 125, 50, 0.3);
+        }
+
+        .feature-card p {
+            line-height: 1.6;
+            color: #a0a0a0;
+        }
+
+        /* Footer */
+        footer {
+            background: #0a1a0a;
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid #1a472a;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #000000;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #1a472a;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2e7d32;
+        }
+
+        /* Animation Delay for Features */
+        .feature-card:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+
+        .feature-card:nth-child(3) {
+            transition-delay: 0.4s;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>WizardHub</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="books.html" class="dropbtn">Books</a>
+                    <div class="dropdown-content">
+                        <a href="books.html">Harry Potter and the Philosopher's Stone</a>
+                        <a href="books.html">Harry Potter and the Chamber of Secrets</a>
+                        <a href="books.html">Harry Potter and the Prisoner of Azkaban</a>
+                        <a href="books.html">Harry Potter and the Goblet of Fire</a>
+                        <a href="books.html">Harry Potter and the Order of the Phoenix</a>
+                        <a href="books.html">Harry Potter and the Half-Blood Prince</a>
+                        <a href="books.html">Harry Potter and the Deathly Hallows</a>
+                    </div>
+                </li>
+                <li><a href="movies.html">Movies</a></li>
+                <li><a href="order.html">Order of the Phoenix </a></li>
+                <li><a href="darkarts.html">Dark Arts</a></li>
+                <li><a href="about.html">About Me</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <header class="header">
+            <h1>About The Creator</h1>
+            <div class="divider"></div>
+        </header>
+
+        <div class="creator-card">
+            <div class="creator-title">
+                <i class="fas fa-wand-sparkles"></i>
+                <h2>He Who Codes in Darkness</h2>
+            </div>
+            <p>
+                Greetings, fellow wizards and witches! I'm Rohan, a passionate Potterhead who created this magical corner of the internet to share my love for the wizarding world. I hope through my website, new potterheads will be able to explore more of the magical world. Expelliarmus!!
+            </p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-book-open feature-icon"></i>
+                <h3 class="feature-title">The Journey</h3>
+                <p>
+                    My magical journey began when I first discovered these enchanting stories, leading me to create this sanctuary for fellow enthusiasts.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <i class="fas fa-handshake feature-icon"></i>
+                <h3 class="feature-title">Our Community</h3>
+                <p>
+                    This space is dedicated to bringing together fans from all houses to share their passion for magic and adventure.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <i class="fas fa-hat-wizard feature-icon"></i>
+                <h3 class="feature-title">The Magic</h3>
+                <p>
+                    Here we explore fan theories, share our experiences, and keep the magic alive through our shared love for the wizarding world.
+                </p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2025 WizardHub. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.creator-card, .feature-card').forEach((card) => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

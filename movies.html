@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', serif;
+        }
+
+        body {
+            background: #000000;
+            color: #c0c0c0;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: linear-gradient(to bottom, #0a1a0a, #000000);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 15px rgba(0, 255, 0, 0.1);
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #1a472a;
+        }
+
+        .logo {
+            margin-right: 3rem;
+        }
+
+        .logo h1 {
+            color: #1a472a;
+            font-size: 2rem;
+            text-shadow: 0 0 10px rgba(26, 71, 42, 0.5);
+            font-family: 'Times New Roman', serif;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #c0c0c0;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover {
+            color: #2e7d32;
+            text-shadow: 0 0 5px rgba(46, 125, 50, 0.5);
+        }
+
+        /* Dropdown */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: rgba(0, 0, 0, 0.95);
+            min-width: 300px;
+            box-shadow: 0 8px 16px rgba(26, 71, 42, 0.3);
+            border: 1px solid #1a472a;
+        }
+
+        .dropdown-content a {
+            padding: 12px 16px;
+            display: block;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Movies Section */
+        .movies {
+            padding: 120px 5% 50px;
+            min-height: 100vh;
+        }
+
+        .movies h1 {
+            text-align: center;
+            color: #2e7d32;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-shadow: 0 0 15px rgba(46, 125, 50, 0.5);
+        }
+
+        .movies ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery {
+            background: linear-gradient(to bottom, #0a1a0a, #000000);
+            border: 1px solid #1a472a;
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+        }
+
+        .gallery:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(46, 125, 50, 0.3);
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            background: #1a472a;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .gallery img:hover {
+            opacity: 1;
+        }
+
+        .gallery h2 {
+            color: #2e7d32;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 5px rgba(46, 125, 50, 0.3);
+        }
+
+        .highlight {
+            line-height: 1.6;
+            color: #a0a0a0;
+            font-size: 0.95rem;
+            text-align: justify;
+        }
+
+        /* Footer */
+        footer {
+            background: #0a1a0a;
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid #1a472a;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #000000;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #1a472a;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2e7d32;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>WizardHub</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="books.html" class="dropbtn">Books</a>
+                    <div class="dropdown-content">
+                        <a href="books.html">Harry Potter and the Philosopher's Stone</a>
+                        <a href="books.html">Harry Potter and the Chamber of Secrets</a>
+                        <a href="books.html">Harry Potter and the Prisoner of Azkaban</a>
+                        <a href="books.html">Harry Potter and the Goblet of Fire</a>
+                        <a href="books.html">Harry Potter and the Order of the Phoenix</a>
+                        <a href="books.html">Harry Potter and the Half-Blood Prince</a>
+                        <a href="books.html">Harry Potter and the Deathly Hallows</a>
+                    </div>
+                </li>
+                <li><a href="movies.html">Movies</a></li>
+                <li><a href="order.html">Order of the Phoenix </a></li>
+                <li><a href="darkarts.html">Dark Arts</a></li>
+                <li><a href="about.html">About Me</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="movies">
+        <h1>Harry Potter Movies</h1>
+    
+        <ul>
+            <li>
+                <div class="gallery">
+                    <img src="movie1.jpg" alt="Harry Potter and the Philosopher's Stone">
+                    <h2>Harry Potter and the Philosopher's Stone (2001)</h2>
+                    <p class="highlight">Plot: Harry discovers he is a wizard on his 11th birthday and attends Hogwarts School of Witchcraft and Wizardry. With friends Ron and Hermione, he uncovers the mystery of the Philosopher's Stone and confronts Voldemort for the first time.</p>
+                </div>
+            </li>
+            <li>
+                <div class="gallery">
+                    <img src="movie2.jpg" alt="Harry Potter and the Chamber of Secrets">
+                    <h2>Harry Potter and the Chamber of Secrets (2002)</h2>
+                    <p class="highlight">Plot: Strange attacks leave students petrified, and Harry uncovers the secret of the Chamber of Secrets, where he battles a deadly basilisk and a young version of Voldemort.</p>
+                </div>
+            </li>
+            <li>
+                <div class="gallery">
+                    <img src="movie3.jpg" alt="Harry Potter and the Prisoner of Azkaban">
+                    <h2>Harry Potter and the Prisoner of Azkaban (2004)</h2>
+                    <p class="highlight">Plot: Harry learns about Sirius Black, an escaped prisoner supposedly after him, only to discover Sirius is his godfather and an ally.</p>
+                </div>
+            </li>
+            <li>
+                <div class="gallery">
+                    <img src="movie4.jpg" alt="Harry Potter and the Goblet of Fire">
+                    <h2>Harry Potter and the Goblet of Fire (2005)</h2>
+                    <p class="highlight">Plot: Harry is unexpectedly entered into the dangerous Triwizard Tournament. The finale marks Voldemort's full return to power.</p>
+                </div>
+            </li>
+            <li>
+                <div class="gallery">
+                    <img src="movie5.jpg" alt="Harry Potter and the Order of the Phoenix">
+                    <h2>Harry Potter and the Order of the Phoenix (2007)</h2>
+                    <p class="highlight">Plot: With Voldemort back, Harry faces disbelief from the wizarding community and forms Dumbledore's Army to fight back. He confronts Voldemort in the Ministry of Magic.</p>
+                </div>
+            </li>
+            <li>
+                <div class="gallery">
+                    <img src="movie6.jpg" alt="Harry Potter and the Half-Blood Prince">
+                    <h2>Harry Potter and the Half-Blood Prince (2009)</h2>
+                    <p class="highlight">Plot: Harry discovers Voldemort's past through memories and learns about Horcruxes. Dumbledore's death at the hands of Snape shocks everyone.</p>
+                </div>
+            </li>
+            <li>
+                <div class="gallery">
+                    <img src="movie7.jpg" alt="Harry Potter and the Deathly Hallows: Part 1">
+                    <h2>Harry Potter and the Deathly Hallows: Part 1 (2010)</h2>
+                    <p class="highlight">Plot: Harry, Hermione, and Ron go on a quest to destroy Voldemort's Horcruxes, evading capture and preparing for the final battle.</p>
+                </div>
+            </li>
+            <li>
+                <div class="gallery">
+                    <img src="movie8.jpg" alt="Harry Potter and the Deathly Hallows: Part 2">
+                    <h2>Harry Potter and the Deathly Hallows: Part 2 (2011)</h2>
+                    <p class="highlight">Plot: The epic conclusion to the series as Harry faces Voldemort in a climactic battle at Hogwarts, where secrets are revealed and love triumphs.</p>
+                </div>
+            </li>
+        </ul>
+    </section>
+    <footer>
+        <p>&copy;2025 WizardHub. All rights reserved.</p>
+    </footer>
+</body>
+</html>

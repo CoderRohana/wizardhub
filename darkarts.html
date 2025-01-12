@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Arts</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', serif;
+        }
+
+        body {
+            background: #000000;
+            color: #c0c0c0;
+        }
+
+        /* Navigation - Keeping your existing styles */
+        .navbar {
+            background: linear-gradient(to bottom, #0a1a0a, #000000);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 15px rgba(0, 255, 0, 0.1);
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #1a472a;
+        }
+
+        .logo {
+            margin-right: 3rem;
+        }
+
+        .logo h1 {
+            color: #1a472a;
+            font-size: 2rem;
+            text-shadow: 0 0 10px rgba(26, 71, 42, 0.5);
+            font-family: 'Times New Roman', serif;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #c0c0c0;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover {
+            color: #2e7d32;
+            text-shadow: 0 0 5px rgba(46, 125, 50, 0.5);
+        }
+
+        /* Dropdown - Keeping your existing styles */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: rgba(0, 0, 0, 0.95);
+            min-width: 300px;
+            box-shadow: 0 8px 16px rgba(26, 71, 42, 0.3);
+            border: 1px solid #1a472a;
+        }
+
+        .dropdown-content a {
+            padding: 12px 16px;
+            display: block;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Main Content Styling */
+        .main {
+            padding-top: 80px; /* Account for fixed navbar */
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-bottom: 3rem;
+        }
+
+        /* Quote Section */
+        .quote-section {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(to bottom, rgba(26, 71, 42, 0.1), transparent);
+            margin-bottom: 3rem;
+            border-bottom: 1px solid #1a472a;
+        }
+
+        .quote {
+            font-size: 1.8rem;
+            font-style: italic;
+            color: #c0c0c0;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 10px rgba(26, 71, 42, 0.3);
+        }
+
+        .quote-author {
+            color: #2e7d32;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Wizards Section */
+        .wizards-section {
+            padding: 2rem;
+            background: rgba(26, 71, 42, 0.05);
+            border-radius: 8px;
+            margin-bottom: 3rem;
+            border: 1px solid #1a472a;
+        }
+
+        .section-title {
+            color: #2e7d32;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px rgba(46, 125, 50, 0.3);
+            text-align: center;
+        }
+
+        .wizard-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 1rem;
+        }
+
+        .wizard-card {
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid #1a472a;
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(26, 71, 42, 0.2);
+        }
+
+        .wizard-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(46, 125, 50, 0.3);
+        }
+
+        .wizard-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            border: 1px solid #1a472a;
+        }
+
+        .wizard-name {
+            color: #2e7d32;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 5px rgba(46, 125, 50, 0.3);
+        }
+
+        /* Death Eaters Section */
+        .death-eaters-section {
+            padding: 2rem;
+            background: rgba(26, 71, 42, 0.05);
+            border-radius: 8px;
+            border: 1px solid #1a472a;
+        }
+
+        .death-eaters-content {
+            line-height: 1.8;
+            padding: 1rem;
+        }
+
+        .death-eaters-content img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border: 1px solid #1a472a;
+        }
+
+        .death-eaters-content p {
+            text-align: justify;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        /* Footer - Keeping your existing styles */
+        footer {
+            background: #0a1a0a;
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid #1a472a;
+        }
+
+        /* Custom Scrollbar - Keeping your existing styles */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #000000;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #1a472a;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2e7d32;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main {
+                padding: 60px 1rem 2rem;
+            }
+
+            .quote {
+                font-size: 1.4rem;
+            }
+
+            .wizard-list {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .nav-links a {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>WizardHub</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="books.html" class="dropbtn">Books</a>
+                    <div class="dropdown-content">
+                        <a href="books.html">Harry Potter and the Philosopher's Stone</a>
+                        <a href="books.html">Harry Potter and the Chamber of Secrets</a>
+                        <a href="books.html">Harry Potter and the Prisoner of Azkaban</a>
+                        <a href="books.html">Harry Potter and the Goblet of Fire</a>
+                        <a href="books.html">Harry Potter and the Order of the Phoenix</a>
+                        <a href="books.html">Harry Potter and the Half-Blood Prince</a>
+                        <a href="books.html">Harry Potter and the Deathly Hallows</a>
+                    </div>
+                </li>
+                <li><a href="movies.html">Movies</a></li>
+                <li><a href="order.html">Order of the Phoenix </a></li>
+                <li><a href="darkarts.html">Dark Arts</a></li>
+                <li><a href="about.html">About Me</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="main">
+        <div class="quote-section">
+            <p class="quote">"When a wizard goes over to the Dark Side, there's nothin' and no one that matters to 'em any more..."</p>
+            <p class="quote-author">-  Rubeus Hagrid (regarding Dark wizards)</p>
+        </div>
+
+        <div class="wizards-section">
+            <h2 class="section-title">Notable Dark Arts Wizards</h2>
+            <div class="wizard-list">
+                <div class="wizard-card">
+                    <img src="voldemort.webp">
+                    <h3 class="wizard-name">Lord Voldemort</h3>
+                    <p>The most powerful dark wizard of all time, known for creating Horcruxes and leading the Death Eaters.</p>
+                </div>
+                <div class="wizard-card">
+                    <img src="BellatrixLestrange.jpg">
+                    <h3 class="wizard-name">Bellatrix Lestrange</h3>
+                    <p>Voldemort's most loyal follower, notorious for her mastery of the Cruciatus Curse.</p>
+                </div>
+                <div class="wizard-card">
+                    <img src="Gellert_Grindelwald.webp">
+                    <h3 class="wizard-name">Gellert Grindelwald</h3>
+                    <p>A powerful dark wizard who sought to establish wizard dominance over Muggles in the early 20th century.</p>
+                </div>
+                <div class="wizard-card">
+                    <img src="snape.webp">
+                    <h3 class="wizard-name">Severus Snape</h3>
+                    <p>A highly skilled practitioner of the Dark Arts, particularly in creating spells and brewing potions.</p>
+                </div>
+                <div class="wizard-card">
+                    <img src="Lucius_Malfoy.webp">
+                    <h3 class="wizard-name">Lucius Malfoy</h3>
+                    <p>He joined the Death Eaters, who shared his views on blood purity, and participated in the First and Second Wizarding War</p>
+                </div>
+                <div class="wizard-card">
+                    <img src="salazar slytherin.jpg">
+                    <h3 class="wizard-name">Salazar Slytherin</h3>
+                    <p>One of the four founders of Hogwarts School and most notorious champions of pure-blood supremacy, who secretly built the Chamber of Secrets for the purpose of housing his Basilisk until the time came for it to purge the school of all Muggle-born students.</p>
+                </div>
+                <div class="wizard-card">
+                    <img src="Barty_Crouch.webp">
+                    <h3 class="wizard-name">Bartemius Crouch Jnr</h3>
+                    <p>A loyal follower who helped ensure Voldemort's return to power in 1995 and played key role in the Triwizard tournamanet.</p>
+                </div>
+                <div class="wizard-card">
+                    <img src="Pettigrew.webp">
+                    <h3 class="wizard-name">Peter Pettigrew</h3>
+                    <p>Served as Lord Voldemort's spy within the Order of the Phoenix at the height of the First Wizarding War, during which he betrayed James and Lily Potter's whereabouts as their Secret-Keeper and murdered twelve Muggles on a London street with a single Blasting Curse whilst faking his own death, framing Sirius Black for both crimes. </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="death-eaters-section">
+            <h2 class="section-title">The Death Eaters</h2>
+            <div class="death-eaters-content">
+                <img src="deatheaters.webp">
+                <p>The Death Eaters were Lord Voldemort's most devoted followers, marked with the Dark Mark on their left forearms. This inner circle of dark wizards and witches practiced the darkest forms of magic and fought to establish pure-blood supremacy in the wizarding world.</p>
+                <br>
+                <p>Known for their use of the Unforgivable Curses and other dark magic, the Death Eaters spread terror throughout both the wizarding and Muggle communities. Their signature moves included the conjuring of the Dark Mark in the sky after committing murders and wearing distinctive silver masks during their operations.</p>
+                <br>
+                <p>Notable members included the Lestrange family, the Malfoys, Barty Crouch Jr., and many others who escaped from Azkaban to rejoin their master during his return to power.</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2025 WizardHub. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

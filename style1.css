@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Georgia', serif;
+}
+
+body {
+    background: #000000;
+    color: #c0c0c0;
+}
+
+/* Navigation */
+.navbar {
+    background: linear-gradient(to bottom, #0a1a0a, #000000);
+    padding: 1rem 5%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 15px rgba(0, 255, 0, 0.1);
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #1a472a;
+}
+
+.logo {
+    margin-right: 3rem;
+}
+
+.logo h1 {
+    color: #1a472a;
+    font-size: 2rem;
+    text-shadow: 0 0 10px rgba(26, 71, 42, 0.5);
+    font-family: 'Times New Roman', serif;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-links a {
+    color: #c0c0c0;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-links a:hover {
+    color: #2e7d32;
+    text-shadow: 0 0 5px rgba(46, 125, 50, 0.5);
+}
+
+/* Dropdown */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.95);
+    min-width: 300px;
+    box-shadow: 0 8px 16px rgba(26, 71, 42, 0.3);
+    border: 1px solid #1a472a;
+}
+
+.dropdown-content a {
+    padding: 12px 16px;
+    display: block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem; 
+    padding: 1rem;
+    padding-top: 5rem;
+    margin-top: 1rem; 
+}
+
+.gallery {
+    flex: 1 1 calc(40% - 1.5rem); /* Increased from 30% to 40% */
+    max-width: calc(40% - 1.5rem); /* Increased from 30% to 40% */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: white;
+    text-align: center;
+}
+
+.gallery img {
+    width: 100%;
+    height: 350px; /* Increased from 250px to 350px */
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+.desc {
+    padding: 0.5rem;
+    font-size: 1rem;
+    background: #2e7d32;
+    color: #ffffff;
+}
+
+footer {
+    background: #0a1a0a;
+    padding: 2rem;
+    text-align: center;
+    border-top: 1px solid #1a472a;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1a472a;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #2e7d32;
+}
